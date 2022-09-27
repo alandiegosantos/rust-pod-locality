@@ -22,28 +22,3 @@ futures = "0.3.23"
 json-patch = "0.2.6"
 warp = { version = "0.3.2", features = ["tls"] }
 clap = { version = "3.2.17", features = ["derive"] }
-
-
-[package.metadata.raze]
-workspace_path = "//cargo"
-package_aliases_dir = "cargo"
-targets = [
-    "x86_64-apple-darwin",
-    "x86_64-pc-windows-msvc",
-    "x86_64-unknown-linux-gnu",
-]
-genmode = "Remote"
-experimental_api = true
-default_gen_buildrs = true
-
-[package.metadata.raze.crates.ring.'*']
-compile_data_attr = "glob([\"**/*.der\"])"
-
-[package.metadata.raze.crates.webpki.'*']
-compile_data_attr = "glob([\"**/*.der\"])"
-
-[package.metadata.raze.crates.clap_derive.'*']
-compile_data_attr = "glob([\"**/README.md\"])"
-
-[package.metadata.raze.crates.clap.'*']
-compile_data_attr = "glob([\"**/*.md\"])"
